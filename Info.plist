@@ -10,6 +10,8 @@
     <string>Copy Path to Clipboard</string>
     <key>CFBundleDisplayName</key>
     <string>Copy Path to Clipboard</string>
+    <key>CFBundleIconFile</key>
+    <string>CopyPathToClipboard</string>
     <key>CFBundleVersion</key>
     <string>1.0</string>
     <key>CFBundleShortVersionString</key>

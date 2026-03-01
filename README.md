@@ -15,6 +15,21 @@ Requires Xcode Command Line Tools (`xcode-select --install`).
 
 The build generates the app icon from [`scripts/generate_icon.swift`](/Users/fragmede/projects/mac/copy-path-to-clipboard/scripts/generate_icon.swift), exports the full macOS `AppIcon.iconset`, and packages `Assets/CopyPathToClipboard.icns` into the app bundle.
 
+## Signed Release
+
+To build a signed, notarized, stapled release archive:
+
+```bash
+./release.sh
+```
+
+This expects:
+
+- A valid `Developer ID Application` certificate in your keychain
+- A working `xcrun notarytool` keychain profile (defaults to `notarytool-profile`)
+
+The release script writes a distributable zip to `dist/`.
+
 ## Usage
 
 1. Right-click any file or folder in Finder

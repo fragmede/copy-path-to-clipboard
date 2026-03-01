@@ -7,7 +7,7 @@
 - [x] Build and verify the app bundle includes the icon assets
 - [x] Add release automation for signing, notarization, stapling, and packaging
 - [x] Build and verify a signed, notarized release artifact
-- [ ] Publish the release artifact to GitHub
+- [x] Publish the release artifact to GitHub
 
 ## Review
 
@@ -18,3 +18,5 @@
 - `./release.sh` signed the app with `Developer ID Application: samson yeung (8874HJ98MD)`.
 - Notarization was accepted via the `notarytool-profile` keychain profile.
 - `xcrun stapler validate` succeeded and `spctl -a -vv --type exec` reported `source=Notarized Developer ID`.
+- Published GitHub release `v1.0` with `CopyPathToClipboard-1.0-macos.zip`.
+- Release URL: https://github.com/fragmede/copy-path-to-clipboard/releases/tag/v1.0

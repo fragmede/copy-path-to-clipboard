@@ -11,3 +11,4 @@
 - `./build.sh` completed successfully.
 - Verified all required iconset PNG sizes were generated in `Assets/AppIcon.iconset`.
 - Verified the built app bundle contains `Contents/Resources/CopyPathToClipboard.icns`.
+- Added `.gitignore` entries for the built app bundle and Finder metadata.

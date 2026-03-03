@@ -37,5 +37,23 @@
             </array>
         </dict>
     </array>
+    <key>NSServices</key>
+    <array>
+        <dict>
+            <key>NSMenuItem</key>
+            <dict>
+                <key>default</key>
+                <string>Copy Path to Clipboard</string>
+            </dict>
+            <key>NSMessage</key>
+            <string>copyPathService</string>
+            <key>NSPortName</key>
+            <string>Copy Path to Clipboard</string>
+            <key>NSSendFileTypes</key>
+            <array>
+                <string>public.item</string>
+            </array>
+        </dict>
+    </array>
 </dict>
 </plist>

@@ -1,12 +1,30 @@
 # Copy Path to Clipboard
 
-A tiny macOS app that copies a file's full path — or just the file name — to your clipboard from Finder's right-click menu.
+Two Finder right-click actions for copying file info to your clipboard:
 
-No dock icon, no window — it copies and quits instantly.
+- **Copy File Name to Clipboard** — copies the full file path (e.g. `/Users/you/Documents/report.pdf`)
+- **Copy Path to Clipboard** — copies the containing directory (e.g. `/Users/you/Documents`)
+
+No dock icon, no window — just copies and quits.
 
 ## Install
 
-Download the latest signed and notarized release from the [Releases page](https://github.com/fragmede/copy-path-to-clipboard/releases), unzip, and move to `/Applications/`.
+Download the latest release from the [Releases page](https://github.com/fragmede/copy-path-to-clipboard/releases), unzip, and move to `/Applications/`.
+
+The release includes:
+- **The app** (signed and notarized) — handles "Open With" for any file type
+- **Two Automator Quick Actions** — add "Copy File Name" and "Copy Path" to Finder's right-click menu
+
+### Install Quick Actions
+
+Copy the included `.workflow` files to your Services folder:
+
+```bash
+cp -r "Copy Path to Clipboard.workflow" ~/Library/Services/
+cp -r "Copy File Name to Clipboard.workflow" ~/Library/Services/
+```
+
+> **First-time setup:** The services may need to be enabled in **System Settings → Keyboard → Keyboard Shortcuts → Services → Files and Folders**.
 
 ### Build from source
 
@@ -16,8 +34,6 @@ cp -r "Copy Path to Clipboard.app" /Applications/
 ```
 
 Requires Xcode Command Line Tools (`xcode-select --install`).
-
-The build generates the app icon from [`scripts/generate_icon.swift`](scripts/generate_icon.swift), exports the full macOS `AppIcon.iconset`, and packages `Assets/CopyPathToClipboard.icns` into the app bundle.
 
 ### Signed Release
 
@@ -36,36 +52,17 @@ The release script writes a distributable zip to `dist/`.
 
 ## Usage
 
-**Option A — Quick Actions / Services menu (recommended)**
-
 1. Right-click any file or folder in Finder
-2. **Quick Actions** > **Copy Path to Clipboard** or **Copy File Name to Clipboard**
+2. Choose **Copy File Name to Clipboard** or **Copy Path to Clipboard**
 3. Paste anywhere
 
-This works on all files, including downloads with quarantine attributes that would otherwise trigger a Gatekeeper warning.
+Multiple files selected? All values are copied, one per line.
 
-> **First-time setup:** Both services must be enabled in **System Settings → Keyboard → Keyboard Shortcuts → Services → Files and Folders** — check the boxes next to "Copy Path to Clipboard" and "Copy File Name to Clipboard". You can also enable them from the Finder context menu under **Quick Actions → Customize...**.
-
-**Option B — Open With**
-
-1. Right-click any file or folder in Finder
-2. **Open With** > **Copy Path to Clipboard**
-3. Paste the full path anywhere
-
-> **Note:** "Open With" triggers Gatekeeper assessment on the target file. Files downloaded from the internet (with `com.apple.quarantine`) may show a misleading "damaged file" error. Use the Services menu instead for quarantined files.
-
-Multiple files selected? All paths are copied, one per line.
-
-After installing a new build, run `pbs -flush` to refresh the Services menu cache (or log out and back in).
+The app also registers as an **Open With** handler. Note that "Open With" triggers Gatekeeper assessment, so files downloaded from the internet may show a warning — the right-click actions don't have this limitation.
 
 ## How it works
 
-A minimal Swift/Cocoa app that:
-- Registers as an "Open With" handler for all file types (`public.item`)
-- Provides an **NSServices** handler for the Finder Services menu
-- Receives file URL(s) via Apple Events (Open With) or pasteboard (Services)
-- Writes the POSIX path(s) to `NSPasteboard`
-- Exits immediately
+Two Automator Quick Actions (shell scripts using `pbcopy`) provide the Finder right-click integration. A minimal Swift/Cocoa app handles the "Open With" path.
 
 Runs as `LSUIElement` (no Dock icon, no menu bar).
 

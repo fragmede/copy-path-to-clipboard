@@ -6,6 +6,10 @@ No dock icon, no window — it copies the path and quits instantly.
 
 ## Install
 
+Download the latest signed and notarized release from the [Releases page](https://github.com/fragmede/copy-path-to-clipboard/releases), unzip, and move to `/Applications/`.
+
+### Build from source
+
 ```bash
 ./build.sh
 cp -r "Copy Path to Clipboard.app" /Applications/
@@ -13,9 +17,9 @@ cp -r "Copy Path to Clipboard.app" /Applications/
 
 Requires Xcode Command Line Tools (`xcode-select --install`).
 
-The build generates the app icon from [`scripts/generate_icon.swift`](/Users/fragmede/projects/mac/copy-path-to-clipboard/scripts/generate_icon.swift), exports the full macOS `AppIcon.iconset`, and packages `Assets/CopyPathToClipboard.icns` into the app bundle.
+The build generates the app icon from [`scripts/generate_icon.swift`](scripts/generate_icon.swift), exports the full macOS `AppIcon.iconset`, and packages `Assets/CopyPathToClipboard.icns` into the app bundle.
 
-## Signed Release
+### Signed Release
 
 To build a signed, notarized, stapled release archive:
 

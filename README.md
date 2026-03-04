@@ -1,8 +1,8 @@
 # Copy Path to Clipboard
 
-A tiny macOS app that copies a file's full path to your clipboard. Use it from Finder's **Right-click > Open With** menu.
+A tiny macOS app that copies a file's full path — or just the file name — to your clipboard from Finder's right-click menu.
 
-No dock icon, no window — it copies the path and quits instantly.
+No dock icon, no window — it copies and quits instantly.
 
 ## Install
 
@@ -39,12 +39,12 @@ The release script writes a distributable zip to `dist/`.
 **Option A — Quick Actions / Services menu (recommended)**
 
 1. Right-click any file or folder in Finder
-2. **Quick Actions** > **Copy Path to Clipboard**
-3. Paste the full path anywhere
+2. **Quick Actions** > **Copy Path to Clipboard** or **Copy File Name to Clipboard**
+3. Paste anywhere
 
 This works on all files, including downloads with quarantine attributes that would otherwise trigger a Gatekeeper warning.
 
-> **First-time setup:** The service must be enabled in **System Settings → Keyboard → Keyboard Shortcuts → Services → Files and Folders** — check the box next to "Copy Path to Clipboard". You can also enable it from the Finder context menu under **Quick Actions → Customize...**.
+> **First-time setup:** Both services must be enabled in **System Settings → Keyboard → Keyboard Shortcuts → Services → Files and Folders** — check the boxes next to "Copy Path to Clipboard" and "Copy File Name to Clipboard". You can also enable them from the Finder context menu under **Quick Actions → Customize...**.
 
 **Option B — Open With**
 

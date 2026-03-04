@@ -36,13 +36,15 @@ The release script writes a distributable zip to `dist/`.
 
 ## Usage
 
-**Option A — Services menu (recommended)**
+**Option A — Quick Actions / Services menu (recommended)**
 
 1. Right-click any file or folder in Finder
-2. **Services** > **Copy Path to Clipboard**
+2. **Quick Actions** > **Copy Path to Clipboard**
 3. Paste the full path anywhere
 
 This works on all files, including downloads with quarantine attributes that would otherwise trigger a Gatekeeper warning.
+
+> **First-time setup:** The service must be enabled in **System Settings → Keyboard → Keyboard Shortcuts → Services → Files and Folders** — check the box next to "Copy Path to Clipboard". You can also enable it from the Finder context menu under **Quick Actions → Customize...**.
 
 **Option B — Open With**
 
